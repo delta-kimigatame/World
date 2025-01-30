@@ -22,14 +22,14 @@ set(flag "-s SAFE_HEAP=1 -s FORCE_FILESYSTEM=1 -s ALLOW_MEMORY_GROWTH=1 -s STRIC
 if (WASM)
     set(flag "-s WASM=1 ${flag}")
 else ()
-    set(flag "-s WASM=0 ${flag}")
+    set(flag "-s WASM=1 -s EXPORT_ES6=1 -s EXPORT_ALL -s INCLUDE_FULL_LIBRARY -s EXPORT_NAME=loadWorldJS ${flag}")
 endif ()
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
     set(flag "${flag} -Wall -O0 -g3 -s LLD_REPORT_UNDEFINED --post-js ${CMAKE_SOURCE_DIR}/src/JS/StaticDebug.js --bind \
               --preload-file vaiueo2d.wav --use-preload-plugins")
 else ()
-    set(flag "${flag} -g0 -Oz --closure 2 --bind")
+    set(flag "${flag} -O0 -g3 --bind --emit-tsd WorldJS.d.ts")
 endif ()
 
 add_subdirectory(lib/WorldCMake)

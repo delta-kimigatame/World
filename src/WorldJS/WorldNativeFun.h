@@ -11,13 +11,14 @@
 #include "WorldJS.h"
 #include "Converter.h"
 
-class WorldNativeFun {
+class WorldNativeFun
+{
 public:
     // DIO Wrapper
     static emscripten::val Dio_JS(emscripten::val x_val, int fs, double frame_period);
 
     // Harvest
-    static emscripten::val Harvest_JS(emscripten::val x_val, int fs, double frame_period);
+    static emscripten::val Harvest_JS(int x_ptr, int x_length, int fs, double frame_period);
 
     // CheapTrick
     static emscripten::val
@@ -33,5 +34,4 @@ public:
                  int fft_size, int fs, const emscripten::val &frame_period);
 };
 
-
-#endif //WORLDJS_WORLDNATIVEFUN_H
+#endif // WORLDJS_WORLDNATIVEFUN_H

@@ -34,7 +34,8 @@
 #include <emscripten/val.h>
 #include <emscripten/bind.h>
 
-class WorldJS {
+class WorldJS
+{
 public:
     WorldJS() = default;
 
@@ -42,7 +43,7 @@ public:
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val Dio(emscripten::val x_val, int fs, double frame_period);
 
-    static EMSCRIPTEN_KEEPALIVE emscripten::val Harvest(emscripten::val x_val, int fs, double frame_period);
+    static EMSCRIPTEN_KEEPALIVE emscripten::val Harvest(int x_ptr, int x_length, int fs, double frame_period);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
     CheapTrick(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fs);
@@ -69,4 +70,4 @@ public:
     static EMSCRIPTEN_KEEPALIVE emscripten::val Wav2World(const std::string &fileName);
 };
 
-#endif //WORLDJS_WORLDJS_H
+#endif // WORLDJS_WORLDJS_H
