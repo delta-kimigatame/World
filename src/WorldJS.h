@@ -43,7 +43,7 @@ public:
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val Dio(emscripten::val x_val, int fs, double frame_period);
 
-    static EMSCRIPTEN_KEEPALIVE emscripten::val Harvest(int x_ptr, int x_length, int fs, double frame_period);
+    static EMSCRIPTEN_KEEPALIVE emscripten::val Harvest(double x[], int x_length, int fs, double frame_period);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
     CheapTrick(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fs);

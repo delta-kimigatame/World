@@ -14,9 +14,9 @@ EMSCRIPTEN_KEEPALIVE emscripten::val WorldJS::Dio(emscripten::val x_val, int fs,
     return WorldNativeFun::Dio_JS(std::move(x_val), fs, frame_period);
 }
 
-EMSCRIPTEN_KEEPALIVE emscripten::val WorldJS::Harvest(int x_ptr, int x_length, int fs, double frame_period)
+EMSCRIPTEN_KEEPALIVE emscripten::val WorldJS::Harvest(double x[], int x_length, int fs, double frame_period)
 {
-    return WorldNativeFun::Harvest_JS(x_ptr, x_length, fs, frame_period);
+    return WorldNativeFun::Harvest_JS(x, x_length, fs, frame_period);
 }
 
 EMSCRIPTEN_KEEPALIVE emscripten::val
