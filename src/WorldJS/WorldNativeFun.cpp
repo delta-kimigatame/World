@@ -48,15 +48,14 @@ emscripten::val WorldNativeFun::Dio_JS(emscripten::val x_val, int fs, double fra
     return ret;
 }
 
-emscripten::val WorldNativeFun::Harvest_JS(double x[], const int x_length, int fs, double frame_period)
+emscripten::val WorldNativeFun::Harvest_JS(const int x_ptr, const int x_length, int fs, double frame_period)
 {
     // init val
     emscripten::val ret = emscripten::val::object();
     // init
     // int x_length;
     // translate array to C++ ptr
-    // auto pointer = (uint8_t *)x_ptr;
-    // auto x = vector<double>(pointer, pointer + x_length);
+    auto x = reinterpret_cast<double *>(x_ptr);
     // auto x = GetPtrFrom1XArray<double>(std::move(x_val), &x_length);
     if (x_length == 0)
     {
