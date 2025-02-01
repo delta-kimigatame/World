@@ -22,7 +22,7 @@ set(flag "-s SAFE_HEAP=1 -s FORCE_FILESYSTEM=1 -s ALLOW_MEMORY_GROWTH=1 -s STRIC
 if (WASM)
     set(flag "-s WASM=1 ${flag}")
 else ()
-    set(flag "-s WASM=1 -s EXPORT_ES6=1 -s EXPORT_ALL -s INCLUDE_FULL_LIBRARY -s EXPORT_NAME=loadWorldJS -s EXPORTED_FUNCTIONS=_malloc,_free -s USE_ES6_IMPORT_META=false ${flag}")
+    set(flag "-s WASM=1 -s MODULARIZE=1 -s EXPORT_ES6=0 -s EXPORT_ALL -s INCLUDE_FULL_LIBRARY -s EXPORT_NAME=loadWorldJS -s EXPORTED_FUNCTIONS=_malloc,_free ${flag}")
 endif ()
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
