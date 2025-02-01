@@ -44,7 +44,7 @@ emscripten::val WorldNativeFun::Dio_JS(const int x_ptr, const int x_length, int 
     // destory memory
     delete[] f0;
     delete[] time_axis;
-    delete[] x;
+    // delete[] x;
     delete[] refined_f0;
     return ret;
 }
@@ -81,7 +81,7 @@ emscripten::val WorldNativeFun::Harvest_JS(const int x_ptr, const int x_length, 
     // destory memory
     delete[] f0;
     delete[] time_axis;
-    delete[] x;
+    // delete[] x;
     return ret;
 }
 
@@ -118,9 +118,9 @@ WorldNativeFun::CheapTrick_JS(const int x_ptr, const int x_length, const int f0_
     CheapTrick(x, x_length, fs, time_axis, f0, f0_length, &option, spectrogram);
     ret.set("spectral", Get2XArray<double>(spectrogram, f0_length, specl));
 
-    delete[] x;
-    delete[] f0;
-    delete[] time_axis;
+    // delete[] x;
+    // delete[] f0;
+    // delete[] time_axis;
     delete[] spectrogram;
     return ret;
 }
@@ -157,9 +157,9 @@ WorldNativeFun::D4C_JS(const int x_ptr, const int x_length, const int f0_ptr, co
     D4C(x, x_length, fs, time_axis, f0, f0_length, fft_size, &option, aperiodicity);
     ret.set("aperiodicity", Get2XArray<double>(aperiodicity, f0_length, specl));
 
-    delete[] x;
-    delete[] f0;
-    delete[] time_axis;
+    // delete[] x;
+    // delete[] f0;
+    // delete[] time_axis;
     delete[] aperiodicity;
     return ret;
 }
@@ -194,9 +194,9 @@ emscripten::val WorldNativeFun::Synthesis_JS(const int f0_ptr, const int f0_leng
     Synthesis(f0, f0_length, spectrogram, aperiodicity, fft_size, frame_period, fs, y_length, y);
     emscripten::val ret = Get1XArray<double>(y, y_length);
 
-    delete[] f0;
-    delete[] spectrogram;
-    delete[] aperiodicity;
+    // delete[] f0;
+    // delete[] spectrogram;
+    // delete[] aperiodicity;
     delete[] y;
     return ret;
 }
