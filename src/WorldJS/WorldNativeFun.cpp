@@ -183,7 +183,7 @@ emscripten::val WorldNativeFun::Synthesis_JS(const int f0_ptr, const int f0_leng
     {
         spectrogram[i] = new double[maxCol];
         aperiodicity[i] = new double[maxCol];
-        for (j = 0; j < maxCol; j++)
+        for (int j = 0; j < maxCol; j++)
         {
             spectrogram[i][j] = spectrogram1d[i * maxCol + j];
             aperiodicity[i][j] = aperiodicity1d[i * maxCol + j];
