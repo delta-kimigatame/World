@@ -26,9 +26,9 @@ WorldJS::CheapTrick(int x_ptr, int x_length, int f0_ptr, int f0_length, int time
 }
 
 EMSCRIPTEN_KEEPALIVE emscripten::val
-WorldJS::D4C(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs)
+WorldJS::D4C(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs,double threshold)
 {
-    return WorldNativeFun::D4C_JS(x_ptr, x_length, f0_ptr, f0_length, time_axis_ptr, fft_size, fs);
+    return WorldNativeFun::D4C_JS(x_ptr, x_length, f0_ptr, f0_length, time_axis_ptr, fft_size, fs,threshold);
 }
 
 EMSCRIPTEN_KEEPALIVE emscripten::val

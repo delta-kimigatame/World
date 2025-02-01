@@ -127,7 +127,7 @@ WorldNativeFun::CheapTrick_JS(const int x_ptr, const int x_length, const int f0_
 
 emscripten::val
 WorldNativeFun::D4C_JS(const int x_ptr, const int x_length, const int f0_ptr, const int f0_length, const int time_axis_ptr, int fft_size,
-                       int fs)
+                       int fs,double threshold)
 {
     // init val
     emscripten::val ret = emscripten::val::object();
@@ -147,7 +147,7 @@ WorldNativeFun::D4C_JS(const int x_ptr, const int x_length, const int f0_ptr, co
     // run D4C
     D4COption option = {0};
     InitializeD4COption(&option);
-    option.threshold = 0.85;
+    option.threshold = threshold;
     auto aperiodicity = new double *[f0_length];
     int specl = fft_size / 2 + 1;
     for (int i = 0; i < f0_length; ++i)

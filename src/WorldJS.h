@@ -49,7 +49,7 @@ public:
     CheapTrick(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fs);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
-    D4C(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs);
+    D4C(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs,double threshold);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
     Synthesis(int f0_ptr, int f0_length, const int spectrogram_ptr, const int aperiodicity_ptr,

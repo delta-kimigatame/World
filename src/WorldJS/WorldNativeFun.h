@@ -26,7 +26,7 @@ public:
 
     // D4C
     static emscripten::val
-    D4C_JS(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs);
+    D4C_JS(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs,double threshold);
 
     // Synthesis
     static emscripten::val
