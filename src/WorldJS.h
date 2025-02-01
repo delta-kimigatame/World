@@ -41,19 +41,19 @@ public:
 
     ~WorldJS() = default;
 
-    static EMSCRIPTEN_KEEPALIVE emscripten::val Dio(emscripten::val x_val, int fs, double frame_period);
+    static EMSCRIPTEN_KEEPALIVE emscripten::val Dio(int x_ptr, int x_length, int fs, double frame_period);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val Harvest(int x_ptr, int x_length, int fs, double frame_period);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
-    CheapTrick(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fs);
+    CheapTrick(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fs);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
-    D4C(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fft_size, int fs);
+    D4C(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs);
 
     static EMSCRIPTEN_KEEPALIVE emscripten::val
-    Synthesis(emscripten::val f0_val, const emscripten::val &spectral_val, const emscripten::val &aperiodicity_val,
-              int fft_size, int fs, const emscripten::val &frame_period);
+    Synthesis(int f0_ptr, int f0_length, const int spectrogram_ptr, const int aperiodicity_ptr,
+                 int fft_size, int fs, const double frame_period);
 
     static EMSCRIPTEN_KEEPALIVE void DisplayInformation(int fs, int nbit, int x_length);
 

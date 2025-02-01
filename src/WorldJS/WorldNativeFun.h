@@ -15,23 +15,23 @@ class WorldNativeFun
 {
 public:
     // DIO Wrapper
-    static emscripten::val Dio_JS(emscripten::val x_val, int fs, double frame_period);
+    static emscripten::val Dio_JS(int x_ptr, int x_length, int fs, double frame_period);
 
     // Harvest
     static emscripten::val Harvest_JS(int x_ptr, int x_length, int fs, double frame_period);
 
     // CheapTrick
     static emscripten::val
-    CheapTrick_JS(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fs);
+    CheapTrick_JS(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fs);
 
     // D4C
     static emscripten::val
-    D4C_JS(emscripten::val x_val, emscripten::val f0_val, emscripten::val time_axis_val, int fft_size, int fs);
+    D4C_JS(int x_ptr, int x_length, int f0_ptr, int f0_length, int time_axis_ptr, int fft_size, int fs);
 
     // Synthesis
     static emscripten::val
-    Synthesis_JS(emscripten::val f0_val, const emscripten::val &spectral_val, const emscripten::val &aperiodicity_val,
-                 int fft_size, int fs, const emscripten::val &frame_period);
+    Synthesis_JS(int f0_ptr, int f0_length, const int spectrogram_ptr, const int aperiodicity_ptr,
+                 int fft_size, int fs, const double frame_period);
 };
 
 #endif // WORLDJS_WORLDNATIVEFUN_H
