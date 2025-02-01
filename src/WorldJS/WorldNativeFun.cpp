@@ -78,6 +78,7 @@ emscripten::val WorldNativeFun::Harvest_JS(const int x_ptr, const int x_length, 
     // set outputs
     ret.set("f0", Get1XArray<double>(f0, f0_length));
     ret.set("time_axis", Get1XArray<double>(time_axis, f0_length));
+    ret.set("input", Get1XArray<double>(x, x_length))
     // destory memory
     delete[] f0;
     delete[] time_axis;
