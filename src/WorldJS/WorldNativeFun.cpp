@@ -121,13 +121,18 @@ WorldNativeFun::CheapTrick_JS(const int x_ptr, const int x_length, const int f0_
     // delete[] x;
     // delete[] f0;
     // delete[] time_axis;
+    // 各行のメモリを解放
+    for (int i = 0; i < f0_length; i++)
+    {
+        delete[] spectrogram[i];
+    }
     delete[] spectrogram;
     return ret;
 }
 
 emscripten::val
 WorldNativeFun::D4C_JS(const int x_ptr, const int x_length, const int f0_ptr, const int f0_length, const int time_axis_ptr, int fft_size,
-                       int fs,double threshold)
+                       int fs, double threshold)
 {
     // init val
     emscripten::val ret = emscripten::val::object();
@@ -160,6 +165,11 @@ WorldNativeFun::D4C_JS(const int x_ptr, const int x_length, const int f0_ptr, co
     // delete[] x;
     // delete[] f0;
     // delete[] time_axis;
+    // 各行のメモリを解放
+    for (int i = 0; i < f0_length; i++)
+    {
+        delete[] aperiodicity[i];
+    }
     delete[] aperiodicity;
     return ret;
 }
