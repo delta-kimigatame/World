@@ -203,7 +203,14 @@ emscripten::val WorldNativeFun::Synthesis_JS(const int f0_ptr, const int f0_leng
     auto y = new double[y_length];
     Synthesis(f0, f0_length, spectrogram, aperiodicity, fft_size, frame_period, fs, y_length, y);
     emscripten::val ret = Get1XArray<double>(y, y_length);
-
+    // 解放処理：まず各行を解放
+    for (int i = 0; i < f0_length; i++) {
+        delete[] spectrogram[i];
+        delete[] aperiodicity[i];
+    }
+    // 次に配列自体を解放
+    delete[] spectrogram;
+    delete[] aperiodicity;
     // delete[] f0;
     // delete[] spectrogram;
     // delete[] aperiodicity;
